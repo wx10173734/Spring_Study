@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--Spring的配置文件-->
+    <!--文件名可以换-->
+    <!--最好放在类路径中，方便后期移植-->
+    <!--配置bean,这样spring才可以帮我们管理对象-->
+<!--    <bean id="" class=""-->
+</beans>
