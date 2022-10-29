@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <!--测试哪些了类型是简单类型-->
+    <bean id="svt" class="com.lzc.bean.SimpleValueType">
+        <property name="age" value="12"/>
+        <property name="age2" value="13"/>
+        <property name="username" value="lzc"/>
+        <property name="season" value="SPRING"/>
+        <property name="flag" value="true"/>
+        <property name="flag2" value="false"/>
+        <property name="c" value="男"/>
+        <property name="c2" value="男"/>
+        <property name="clazz" value="java.lang.String"/>
+        <!--报错了，说1970-10-11这个字符串无法转换成java. util.Date类型。-->
+        <!--在实际开发中，我们般不会把Date 当做简单类型，虽然它是简单类型。一般会 采用ref给Date类型的属性赋值。-->
+        <!--        <property name="brithday" value="2000-06-21"/>-->
+        <!--如果你硬要把Date当做简单类型的话，使用value 赋值的话，这个日期字符串格式有要求-->
+
+
+    </bean>
+    <!--外部bean-->
+    <bean id="orderDaoBean" class="com.lzc.dao.OrderDao"/>
+    <bean id="orderServiceBean" class="com.lzc.service.OrderService">
+        <!--使用ref属性注入外部bean-->
+        <property name="orderDao" ref="orderDaoBean"/>
+    </bean>
+
+    <bean id="orderServiceBean2" class="com.lzc.service.OrderService">
+        <property name="orderDao">
+            <!-- property标签中使用嵌套的bean标签，这就是内部Bean-->
+            <bean class="com.lzc.dao.OrderDao"/>
+        </property>
+    </bean>
+
+
+    <!--注入简单类型-->
+    <bean id="userBean" class="com.lzc.bean.User">
+        <!--重点:如果是给简单类型赋值,就不能使用ref了。就需要使用value了。-->
+        <property name="username" value="张三"/>
+        <property name="password" value="123"/>
+        <property name="age" value="20"/>
+    </bean>
+
+    <bean id="catBean" class="com.lzc.bean.Cat">
+
+    </bean>
+</beans>

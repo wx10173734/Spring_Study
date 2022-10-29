@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="userDaoBean" class="com.lzc.dao.UserDao"/>
+    <bean id="vipDaoBean" class="com.lzc.dao.VipDao"/>
+    <bean id="csBean3" class="com.lzc.service.CustomerService">
+        <!--自己类型匹配-->
+        这种方式实际上:是根据类型进行注入的。spring会自动根据类型来判断把ref注入给哪个参数。- - >
+        <constructor-arg ref="userDaoBean"/>
+        <constructor-arg ref="vipDaoBean"/>
+    </bean>
+    <bean id="csBean2" class="com.lzc.service.CustomerService">
+        <!--根据构造方法参数的名字进行注入。-->
+        <constructor-arg name="userDao" ref="userDaoBean"/>
+        <constructor-arg name="vipDao" ref="vipDaoBean"/>
+    </bean>
+    <bean id="csBean" class="com.lzc.service.CustomerService">
+        <!-- 构造注入-->
+        <!--
+            index属性指定参数下标，第一个0，第二个1 以此类推
+             ref属性用来指定注入的bean的id
+            -->
+        <!--指定构造方法第一个参数 下标0-->
+        <constructor-arg index="0" ref="userDaoBean"/>
+        <!--指定构造方法第二个参数 下标1-->
+        <constructor-arg index="1" ref="vipDaoBean"/>
+    </bean>
+</beans>
