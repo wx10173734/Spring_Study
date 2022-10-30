@@ -46,6 +46,29 @@
     </bean>
 
     <bean id="catBean" class="com.lzc.bean.Cat">
+        <!--不给属性注入，属性默认值weiNull-->
+<!--                <property name="name" value="null"></property>&lt;!&ndash;这不是注入null只是注入了Null字符串&ndash;&gt;- -->
+<!--        <property name="name">-->
+<!--            &lt;!&ndash;这种方式是手动注入null&ndash;&gt;-->
+<!--            <null></null>-->
+<!--        </property>-->
 
+        <!--注入空字符串-->
+<!--        <property name="name" value=""/>-->
+        <!--注入空字符串第二种方式-->
+        <property name="name">
+            <value/>
+        </property>
+        <property name="age" value="3"></property>
+    </bean>
+
+    <bean id="mathBean" class="com.lzc.bean.MathBean">
+        <!--第一种方案，使用实体符号代替特殊符号-->
+<!--        <property name="result" value="2 &lt; 3"/>-->
+        <!--第二种方案，使用<![CDATA[]]>-->
+        <property name="result">
+            <!--只能使用value标签-->
+            <value><![CDATA[2 < 3]]></value>
+        </property>
     </bean>
 </beans>

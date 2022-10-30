@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--    <bean id="orderService" class="com.lzc.service.OrderService">-->
+    <!--        <property name="orderDao" ref="orderDao"/>-->
+    <!--    </bean>-->
+    <!--    <bean id="orderDao" class="com.lzc.dao.OrderDao"/>-->
+
+
+    <!--根据名字进行自动装配-->
+    <!--注意：自动装配也是基于set实现的-->
+    <bean id="orderService" class="com.lzc.service.OrderService" autowire="byName"/>
+    <!--根据名称进行自动装配，被注入的对象的id不能随便写，set方法的方法名去掉set,剩下单词首字母小写。-->
+    <bean id="orderDao" class="com.lzc.dao.OrderDao"/>
+
+
+    <!--根据类型进行自动装配-->
+    <!--自动装配是基于set方法的-->
+    <!--根据类型进行自动装配的时候，在有效的配置文件当中，某种类型的实例只能有一- 1仆-->
+    <bean class="com.lzc.dao.VipDao"></bean>
+    <bean class="com.lzc.dao.UserDao"></bean>
+    <bean id="cs" class="com.lzc.service.CustomerService" autowire="byType"/>
+</beans>

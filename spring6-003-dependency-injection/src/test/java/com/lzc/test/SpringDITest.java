@@ -2,6 +2,8 @@ package com.lzc.test;
 
 import com.lzc.bean.*;
 import com.lzc.jdbc.MyDataSource;
+import com.lzc.jdbc.MyDataSource1;
+import com.lzc.jdbc.MyDataSource2;
 import com.lzc.service.CustomerService;
 import com.lzc.service.OrderService;
 import com.lzc.service.UserService;
@@ -82,4 +84,36 @@ public class SpringDITest {
         System.out.println(person);
 
     }
+
+    @Test
+    public void testNull(){
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("set-di.xml");
+        Cat cat = applicationContext.getBean("catBean", Cat.class);
+        System.out.println(cat.getName().toUpperCase());
+    }
+
+    @Test
+    public void testSpecial(){
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("set-di.xml");
+        MathBean mathBean = applicationContext.getBean("mathBean", MathBean.class);
+        System.out.println(mathBean);
+    }
+
+    @Test
+    public void testP(){
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring-p.xml");
+        Dog dog = applicationContext.getBean("dogBean", Dog.class);
+        System.out.println(dog);
+    }
+
+    @Test
+    public void testUtil(){
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring-util.xml");
+        MyDataSource1 myDataSource1 = applicationContext.getBean("ds1", MyDataSource1.class);
+        MyDataSource2 myDataSource2 = applicationContext.getBean("ds2", MyDataSource2.class);
+        System.out.println(myDataSource1);
+        System.out.println(myDataSource2);
+    }
+
+
 }
