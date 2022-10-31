@@ -1,6 +1,5 @@
 package com.lzc.myspringtest;
 
-import com.lzc.myspring.bean.UserService;
 import org.junit.Test;
 import org.myspringframework.core.ApplicationContext;
 import org.myspringframework.core.ClassPathXmlApplicationContext;
@@ -13,11 +12,11 @@ import org.myspringframework.core.ClassPathXmlApplicationContext;
 public class mySpringTest {
     @Test
     public void testMySpring() {
-        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("myspring.xml");
-        Object user = applicationContext.getBean("user");
-        System.out.println(user);
-        UserService userService = (UserService ) applicationContext.getBean("userService");
-        userService.save();
+//        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("myspring.xml");
+//        Object user = applicationContext.getBean("user");
+//        System.out.println(user);
+//        UserService userService = (UserService ) applicationContext.getBean("userService");
+//        userService.save();
 
     }
 }

@@ -1,21 +1,14 @@
-package com.lzc.myspring.bean;
+package com.lzc.bean;
 
 /**
- * @title: User
+ * @title: Vip
  * @Author luozouchen
- * @Date: 2022/10/31 18:19
+ * @Date: 2022/10/31 19:43
  */
-public class User {
+public class Vip {
     private String name;
     private int age;
-
-    public User() {
-    }
-
-    public User(String name, int age) {
-        this.name = name;
-        this.age = age;
-    }
+    private double height;
 
     public void setName(String name) {
         this.name = name;
@@ -25,11 +18,16 @@ public class User {
         this.age = age;
     }
 
+    public void setHeight(double height) {
+        this.height = height;
+    }
+
     @Override
     public String toString() {
-        return "User{" +
+        return "Vip{" +
                 "name='" + name + '\'' +
                 ", age=" + age +
+                ", height=" + height +
                 '}';
     }
 }
