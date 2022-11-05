@@ -3,6 +3,7 @@ package com.lzc.proxy.client;
 import com.lzc.proxy.service.OrderService;
 import com.lzc.proxy.service.OrderServiceImpl;
 import com.lzc.proxy.service.TimerInvocationHandler;
+import com.lzc.proxy.util.ProxyUtil;
 
 import java.lang.reflect.Proxy;
 
@@ -43,7 +44,8 @@ public class Client {
             因为这种调用处理器写次就好。
           注意:代理对象和目标对象实现的接口-一样，所以可以向下转型。
          */
-        OrderService proxyObj = (OrderService) Proxy.newProxyInstance(target.getClass().getClassLoader(), target.getClass().getInterfaces(), new TimerInvocationHandler(target));
+        //
+        OrderService proxyObj = (OrderService) ProxyUtil.newProxyInstance(target);
         //调用代理对象的代理方法
         //注意:调用代理对象的代理方法的时候，如果你要做增强的话，目标对象的目标方法得保证执行。
         proxyObj.generate();
