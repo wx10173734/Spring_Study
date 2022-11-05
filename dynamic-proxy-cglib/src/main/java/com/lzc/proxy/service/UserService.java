@@ -1,0 +1,23 @@
+package com.lzc.proxy.service;
+
+/**
+ * 目标类
+ *
+ * @title: UserService
+ * @Author luozouchen
+ * @Date: 2022/11/6 4:05
+ */
+public class UserService {
+    //目标方法
+    public boolean login(String username, String password) {
+        System.out.println("系统正在验证身份");
+        if ("admin".equals(username) && "123".equals(password)) {
+            return true;
+        }
+        return false;
+    }
+    //目标方法
+    public void logout(){
+        System.out.println("系统正在退出");
+    }
+}
