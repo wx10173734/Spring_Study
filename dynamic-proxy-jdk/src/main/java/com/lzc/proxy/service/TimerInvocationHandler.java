@@ -48,6 +48,7 @@ public class TimerInvocationHandler implements InvocationHandler {
         //System.out.println("增强2...");
         long end = System.currentTimeMillis();
         System.out.println("耗时:"+(end-begin)+"毫秒");
+        //注意这个invoke方法的返回值， 如果代理对象调用代理方法之后，需要返回结果的话，invoke方法必须将目标对象的目标方法执行结果继续返回。
         return retValue;
     }
 }
