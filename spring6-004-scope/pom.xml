@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.lzc</groupId>
-    <artifactId>spring6_004_scope</artifactId>
+    <artifactId>spring6-004-scope</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
