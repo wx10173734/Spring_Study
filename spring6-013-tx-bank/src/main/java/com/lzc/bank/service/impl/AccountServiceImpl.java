@@ -42,8 +42,8 @@ public class AccountServiceImpl implements AccountService {
         int count = accountDao.update(fromAct);
 
         //模拟异常
-//        String s = null;
-//        s.toString();
+        String s = null;
+        s.toString();
 
         count += accountDao.update(toAct);
         if (count != 2) {
