@@ -1,9 +1,13 @@
 import com.lzc.bank.pojo.Account;
 import com.lzc.bank.service.AccountService;
+import com.lzc.bank.service.IsolationService1;
+import com.lzc.bank.service.IsolationService2;
 import com.lzc.bank.service.impl.AccountServiceImpl;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import java.io.IOException;
 
 /**
  * @title: SpringTxTest
@@ -32,6 +36,22 @@ public class SpringTxTest {
         AccountService accountService = applicationContext.getBean("accountService", AccountService.class);
         Account act = new Account("act-003", 1000.0);
         accountService.save(act);
+    }
+
+    @Test
+    public void testIsolation1() {
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring.xml");
+        IsolationService1 i1 = applicationContext.getBean("i1", IsolationService1.class);
+        i1.geyByActno("act-004");
+
+    }
+
+    @Test
+    public void testIsolation2() throws IOException {
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring.xml");
+        IsolationService2 i2 = applicationContext.getBean("i2", IsolationService2.class);
+        i2.save(new Account("act-004", 1000.0));
+
     }
 
 }
